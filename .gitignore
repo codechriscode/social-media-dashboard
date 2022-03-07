@@ -1,0 +1,15 @@
+# dependencies
+node_modules
+
+# test
+.scannerwork
+/coverage
+
+# production
+/build
+
+# other
+.DS_Store
+.env*
+*.log*
+.vscode
