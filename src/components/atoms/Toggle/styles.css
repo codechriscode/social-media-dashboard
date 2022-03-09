@@ -1,15 +1,9 @@
-html {
-  --slider-background: hsl(230, 22%, 74%);
-  --slider-gradient-1: hsl(210, 78%, 56%);
-  --slider-gradient-2: hsl(146, 68%, 55%);
-  --slider-before: white;
-}
-
 .switch {
   position: relative;
   display: inline-block;
   width: 50px;
   height: 30px;
+  margin-left: 15px;
 }
 
 .switch input {
@@ -41,10 +35,10 @@ html {
   transition: 0.4s;
 }
 
-input + .slider:hover,
+.slider:hover,
 input:checked + .slider {
   background: linear-gradient(
-    to top right,
+    to right,
     var(--slider-gradient-1),
     var(--slider-gradient-2)
   );

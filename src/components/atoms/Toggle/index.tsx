@@ -1,4 +1,4 @@
-import "./Toggle.css";
+import "./styles.css";
 
 export default function Toggle(props: {checked?: boolean}) {
   const { checked } = props;

@@ -1,4 +1,4 @@
-import "./Typography.css";
+import "./styles.css";
 
 type Variant =
   | "title"
@@ -6,15 +6,17 @@ type Variant =
   | "subtitle"
   | "profile-name"
   | "spotlight-num"
+  | "spotlight-num2"
   | "spaced-caps"
   | "change-text"
 
 type TypographyProps = {
   variant: Variant;
   children: string | number;
+  style?: {color: string}
 };
 
 export default function Typography(props: TypographyProps) {
-  const { variant, children } = props;
-  return <p className={variant}>{children}</p>;
+  const { variant, children, style } = props;
+  return <p className={variant} style={style || {}}>{children}</p>;
 }

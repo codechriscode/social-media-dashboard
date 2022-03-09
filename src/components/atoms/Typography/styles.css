@@ -1,18 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
-html {
-  --strong-text-color: hsl(230, 17%, 14%);
-  --light-text-color: hsl(228, 12%, 44%);
-}
-
 p {
   font-family: "Inter", sans-serif;
   font-weight: 700;
+  margin: 0;
 }
 
 .title {
   font-size: 26px;
   color: var(--strong-text-color);
+  margin-bottom: 7px;
 }
 
 .title2 {
@@ -35,10 +32,16 @@ p {
   color: var(--strong-text-color);
 }
 
+.spotlight-num2 {
+  font-size: 32px;
+  color: var(--strong-text-color);
+}
+
 .spaced-caps {
   font-weight: 400;
   font-size: 11px;
-  letter-spacing: 1.8em;
+  letter-spacing: 0.8em;
+  margin-left: 0.8em;
   text-transform: uppercase;
   color: var(--light-text-color);
 }
