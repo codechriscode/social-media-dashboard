@@ -1,0 +1,43 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border-radius: 3%;
+  background-color: var(--card-background);
+}
+
+.card:hover {
+  background-color: var(--card-background-hover);
+}
+
+.main-card {
+  width: 255px;
+  height: 220px;
+}
+
+.main-card::before {
+  position: absolute;
+  top: 0;
+  content: "";
+  height: 5px;
+  width: 255px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.Facebook.main-card::before {
+  background: hsl(208, 92%, 53%);
+}
+
+.Twitter.main-card::before {
+  background: hsl(203, 89%, 53%);
+}
+
+.YouTube.main-card::before {
+  background: hsl(348, 97%, 39%);
+}
+
+.Instagram.main-card::before {
+  background: linear-gradient(to right, hsl(37, 97%, 70%), hsl(329, 70%, 58%));
+}
