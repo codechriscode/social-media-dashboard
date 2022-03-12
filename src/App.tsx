@@ -1,13 +1,20 @@
-import React from 'react';
-import './App.css';
-import Dashboard from './components/template/Dashboard';
+import React from "react";
+import "./App.css";
+import Box from "./components/atoms/Box";
+import Dashboard from "./components/template/Dashboard";
 
-function App() {
+const recoverDarkMode = () => {
+  if (localStorage.getItem("darkMode") === "true")
+    document.documentElement.setAttribute("darkMode", "true");
+};
+
+export default function App() {
+  recoverDarkMode();
   return (
     <div className="App">
-      <Dashboard />
+      <Box boxClass="center-column">
+        <Dashboard />
+      </Box>
     </div>
   );
 }
-
-export default App;
