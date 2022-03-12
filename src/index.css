@@ -8,6 +8,8 @@ html {
   --light-text-color: hsl(228, 12%, 44%);
   --bg-color-1: white;
   --bg-color-2: hsl(225, 100%, 98%);
+  --change-positive: hsl(163, 72%, 41%);
+  --change-negative: hsl(356, 69%, 56%);
 }
 
 html[darkMode='true'] {

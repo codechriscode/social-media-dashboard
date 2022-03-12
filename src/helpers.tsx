@@ -15,9 +15,9 @@ export function roundNum(value: number): number | string {
 
 export function getColor(value: number) {
   if (value > 0) {
-    return "green";
+    return "--change-positive";
   } else if (value < 0) {
-    return "red";
+    return "--change-negative";
   }
   return "";
 }

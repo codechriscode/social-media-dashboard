@@ -13,7 +13,7 @@ export default function Indicator(props: {
   return (
     <div className="center-row">
       {value && arrow ? <Icon iconName={getIconName(value)} /> : ""}
-      <Typography variant="subtitle" style={{ color: getColor(value) }}>
+      <Typography variant="subtitle" style={{ color: `var(${getColor(value)})` }}>
         {`${Math.abs(value)}${percent ? "%" : ""} ${
           period ? calcPeriod(0) : ""
         }`}
