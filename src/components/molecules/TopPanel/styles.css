@@ -1,0 +1,33 @@
+.divider {
+  display: none;
+}
+
+#topPanel {
+  margin-bottom: 25px;
+  width: 100%;
+}
+
+#darkModePanel {
+  width: 150px;
+}
+
+@media screen and (max-width: 625px) {
+  .divider {
+    display: inline;
+    border-style: solid;
+    border-width: 1px;
+    border-top: 1px;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    width: 100%;
+    border-color: var(--light-text-color);
+  }
+
+  #topPanel {
+    flex-direction: column;
+  }
+
+  #darkModePanel {
+    width: 100%;
+  }
+}

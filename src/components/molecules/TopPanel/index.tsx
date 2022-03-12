@@ -2,6 +2,8 @@ import Box from "../../atoms/Box";
 import Toggle from "../../atoms/Toggle";
 import Typography from "../../atoms/Typography";
 
+import "./styles.css";
+
 const getDarkMode = () => {
   return localStorage.getItem("darkMode");
 };
@@ -23,12 +25,13 @@ export default function TopPanel() {
 
   return (
     <>
-      <Box boxClass="corner-row">
+      <Box id="topPanel" boxClass="corner-row" >
         <div>
           <Typography variant="title">Social Media Dashboard</Typography>
           <Typography variant="subtitle">{`Total Followers: ${23405}`}</Typography>
         </div>
-        <Box boxClass="corner-row">
+        <span className="divider" />
+        <Box id="darkModePanel" boxClass="corner-row" >
           <Typography variant="subtitle">Dark Mode</Typography>
           <Toggle checked={checked} onchange={toggleDarkMode} />
         </Box>
