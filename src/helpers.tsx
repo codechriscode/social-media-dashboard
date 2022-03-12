@@ -23,18 +23,28 @@ export function getColor(value: number) {
 }
 
 export function getIconName(value: number) {
-  if(value > 0) {
+  if (value > 0) {
     return "up";
   } else if (value < 0) {
-    return "down"
+    return "down";
   }
   return "";
 }
 
 export function calcPeriod(days: number): string {
-  if(days > 0) {
+  if (days > 0) {
     // Calculate today - days
-    return "Today"
+    return `Last ${days} days`;
   }
-  return "Today"
+  return "Today";
+}
+
+export function commaSeparate(num: number) {
+  const parts = num.toString().split(".");
+  const numberPart = parts[0];
+  const decimalPart = parts[1];
+  const thousands = /\B(?=(\d{3})+(?!\d))/g;
+  return (
+    numberPart.replace(thousands, ",") + (decimalPart ? "." + decimalPart : "")
+  );
 }
