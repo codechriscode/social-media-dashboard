@@ -2,7 +2,7 @@ body {
   background: var(--bg-color-1);
 }
 
-*:not(.slider) {
+*:not(.slider), *::before {
   transition: 0.5s;
 }
 

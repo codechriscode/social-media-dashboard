@@ -6,6 +6,7 @@ import Card, { CardProps } from "./Card";
 import { MediumInfoType, OtherStatusType } from "../../../mock/payload";
 
 import "./styles.css";
+import { roundNum } from "../../../helpers";
 
 type MiniCardProps = CardProps &
   Omit<MediumInfoType, "username"> & { other_status: OtherStatusType };
@@ -19,8 +20,8 @@ export default function MiniCard(props: MiniCardProps) {
         <Typography variant="subtitle">{other_status.unit}</Typography>
         <Icon iconName={name} />
       </Box>
-      <Box boxClass="corner-row" style={{alignItems: "baseline"}}>
-        <Typography variant="spotlight-num2">{other_status.value}</Typography>
+      <Box boxClass="corner-row" style={{ alignItems: "baseline" }}>
+        <Typography variant="spotlight-num2">{roundNum(other_status.value)}</Typography>
         <Indicator value={other_status.change_pc} arrow percent />
       </Box>
     </Card>

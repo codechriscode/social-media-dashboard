@@ -23,6 +23,7 @@ p {
 .subtitle {
   font-size: 14px;
   color: var(--light-text-color);
+  text-transform: capitalize;
 }
 
 .profile-name {

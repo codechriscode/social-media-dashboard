@@ -1,7 +1,7 @@
 import MainCard from "../../molecules/Cards/MainCard";
 import mock from "../../../mock/payload";
 
-import "./styles.css";
+import "../styles.css";
 import React, { useState } from "react";
 
 const handleDragStart = (e: React.DragEvent<HTMLSpanElement>) => {
