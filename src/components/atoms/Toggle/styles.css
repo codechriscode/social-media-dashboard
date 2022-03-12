@@ -30,7 +30,7 @@
   width: 22px;
   left: 4px;
   bottom: 4px;
-  background-color: var(--slider-before);
+  background-color: var(--bg-color-1);
   border-radius: 50%;
   transition: 0.4s;
 }
