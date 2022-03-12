@@ -2,8 +2,6 @@ import Box from "../../atoms/Box";
 import Toggle from "../../atoms/Toggle";
 import Typography from "../../atoms/Typography";
 
-import "./styles.css";
-
 const getDarkMode = () => {
   return localStorage.getItem("darkMode");
 };

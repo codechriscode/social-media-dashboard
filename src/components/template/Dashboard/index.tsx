@@ -1,8 +1,6 @@
-import Toggle from "../../atoms/Toggle";
 import Typography from "../../atoms/Typography";
 import Scoreboard from "../../organisms/Scoreboard";
 import TopPanel from "../../molecules/TopPanel";
-import MiniCard from "../../molecules/Cards/MiniCard";
 
 export default function Dashboard() {
 
