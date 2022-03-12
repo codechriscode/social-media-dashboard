@@ -1,4 +1,24 @@
-.overview {
+.grid-container {
+  width: 80vw;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: max-content max-content max-content max-content;
+  grid-gap: 2vw;
+}
+
+@media screen and (max-width: 1200px) {
+  .grid-container {
+    grid-template-columns: max-content max-content max-content;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .grid-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
 }
