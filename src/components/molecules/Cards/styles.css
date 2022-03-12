@@ -5,18 +5,22 @@
   justify-content: space-evenly;
   border-radius: 3%;
   background-color: var(--card-background);
+  width: 255px;
 }
 
 .card:hover {
   background-color: var(--card-background-hover);
 }
 
-.main-card {
-  width: 255px;
+.mini.card {
+  height: 125px;
+}
+
+.main.card {
   height: 220px;
 }
 
-.main-card::before {
+.main.card::before {
   position: absolute;
   top: 0;
   content: "";
@@ -26,18 +30,18 @@
   border-top-right-radius: 15px;
 }
 
-.Facebook.main-card::before {
+.facebook.main.card::before {
   background: hsl(208, 92%, 53%);
 }
 
-.Twitter.main-card::before {
+.twitter.main.card::before {
   background: hsl(203, 89%, 53%);
 }
 
-.YouTube.main-card::before {
+.youtube.main.card::before {
   background: hsl(348, 97%, 39%);
 }
 
-.Instagram.main-card::before {
+.instagram.main.card::before {
   background: linear-gradient(to right, hsl(37, 97%, 70%), hsl(329, 70%, 58%));
 }

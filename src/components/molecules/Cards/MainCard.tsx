@@ -1,27 +1,37 @@
+import Card, { CardProps } from "./Card";
+import { MockType } from "../../../mock/payload";
 import Typography from "../../atoms/Typography";
 import Icon from "../../atoms/Icon";
 import Indicator from "../../atoms/Indicator";
 import Box from "../../atoms/Box";
 
-import "./styles.css";
-
 import { roundNum } from "../../../helpers";
 
-type MainCardProps = {
-  name: string;
-  username: string;
-  status: {
-    value: number;
-    unit: string;
-    change: number;
-  };
-};
+type MainCardProps = CardProps & Omit<MockType["media"][0], "other_status">;
 
 export default function MainCard(props: MainCardProps) {
-  const { name, username, status } = props;
+  const {
+    name,
+    username,
+    status,
+    draggable = false,
+    onclick,
+    ondragstart,
+    ondragover,
+    ondrop,
+    id,
+  } = props;
 
   return (
-    <span className={`card main-card ${name}`}>
+    <Card
+      cardClass={`main ${name.toLowerCase()}`}
+      draggable={draggable}
+      onclick={onclick}
+      ondragstart={ondragstart}
+      ondragover={ondragover}
+      ondrop={ondrop}
+      id={id}
+    >
       <Box boxClass="center-row">
         <Icon iconName={name} />
         <Typography variant="profile-name">{username}</Typography>
@@ -33,6 +43,6 @@ export default function MainCard(props: MainCardProps) {
         <Typography variant="spaced-caps">{status.unit}</Typography>
       </Box>
       <Indicator value={status.change} period arrow />
-    </span>
+    </Card>
   );
 }
