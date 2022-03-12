@@ -19,7 +19,7 @@ export default function MiniCard(props: MiniCardProps) {
         <Typography variant="subtitle">{other_status.unit}</Typography>
         <Icon iconName={name} />
       </Box>
-      <Box boxClass="corner-row">
+      <Box boxClass="corner-row" style={{alignItems: "baseline"}}>
         <Typography variant="spotlight-num2">{other_status.value}</Typography>
         <Indicator value={other_status.change_pc} arrow percent />
       </Box>

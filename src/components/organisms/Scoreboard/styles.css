@@ -1,5 +1,4 @@
 .grid-container {
-  width: 80vw;
   display: grid;
   grid-template-columns: max-content max-content max-content max-content;
   grid-gap: 2vw;
@@ -11,13 +10,13 @@
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 850px) {
   .grid-container {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 625px) {
   .grid-container {
     grid-template-columns: 1fr;
   }

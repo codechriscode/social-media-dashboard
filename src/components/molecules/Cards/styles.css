@@ -15,6 +15,11 @@
 
 .mini.card {
   height: 125px;
+  justify-content: space-evenly;
+}
+
+.card .corner-row {
+  width: 80%;
 }
 
 .main.card {
@@ -26,9 +31,10 @@
   top: 0;
   content: "";
   height: 5px;
-  width: 255px;
+  width: inherit;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
+  transition: 0.5s;
 }
 
 .facebook.main.card::before {

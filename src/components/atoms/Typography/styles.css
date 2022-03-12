@@ -9,8 +9,8 @@ p {
 .title {
   font-size: 26px;
   color: var(--strong-text-color);
-  margin-bottom: 7px;
-  margin-top: 5vh;
+  margin-bottom: 0.2em;
+  margin-top: 0.2em;
 }
 
 .title2 {

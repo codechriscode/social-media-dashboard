@@ -95,7 +95,7 @@ const mock: MockType = {
       status: {
         value: 8239,
         unit: "subscribers",
-        change: 144,
+        change: -144,
       },
       other_status: [
         {
