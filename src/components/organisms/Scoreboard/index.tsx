@@ -55,6 +55,7 @@ export default function Scoreboard() {
             ondrop={finishMove}
             name={medium.name}
             status={medium.status}
+            period={mock.period}
             username={medium.username}
             key={identifier}
           />

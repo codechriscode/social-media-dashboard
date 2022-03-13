@@ -11,6 +11,7 @@ export type CardProps = {
   ondragover?: React.DragEventHandler;
   ondrop?: React.DragEventHandler;
   id?: string;
+  period?: number;
 };
 
 export default function Card(props: CardProps) {

@@ -1,7 +1,7 @@
 import Card, { CardProps } from "./Card";
 import { MockType } from "../../../mock/payload";
 import Typography from "../../atoms/Typography";
-import Icon from "../../atoms/Icon";
+import Icon, {IconNames} from "../../atoms/Icon";
 import Indicator from "../../atoms/Indicator";
 import Box from "../../atoms/Box";
 
@@ -12,6 +12,7 @@ type MainCardProps = CardProps & Omit<MockType["media"][0], "other_status">;
 export default function MainCard(props: MainCardProps) {
   const {
     name,
+    period,
     username,
     status,
     draggable = false,
@@ -31,9 +32,10 @@ export default function MainCard(props: MainCardProps) {
       ondragover={ondragover}
       ondrop={ondrop}
       id={id}
+      period={period}
     >
       <Box boxClass="center-row">
-        <Icon iconName={name} />
+        <Icon iconName={name as IconNames} />
         <Typography variant="profile-name">{username}</Typography>
       </Box>
       <Box boxClass="center-column">
@@ -42,7 +44,7 @@ export default function MainCard(props: MainCardProps) {
         </Typography>
         <Typography variant="spaced-caps">{status.unit}</Typography>
       </Box>
-      <Indicator value={status.change} period arrow />
+      <Indicator value={status.change} period={period} arrow />
     </Card>
   );
 }
