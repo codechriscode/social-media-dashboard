@@ -1,8 +1,8 @@
-export function roundNum(value: number): number | string {
+export function roundNum(value: number): string {
   let sign = "";
   if (value < 0) sign = "-";
   if (value <= 9999) {
-    return value;
+    return value.toString();
   } else if (value <= 999999) {
     return sign + `${Math.trunc(value / 1000)}k`;
   } else if (value <= 999999999) {
@@ -10,7 +10,7 @@ export function roundNum(value: number): number | string {
   } else if (value > 999999999) {
     return sign + `${Math.trunc(value / 1000000000)}B`;
   }
-  return value;
+  return value.toString();
 }
 
 export function getColor(value: number) {
@@ -22,7 +22,7 @@ export function getColor(value: number) {
   return "";
 }
 
-export function getIconName(value: number) {
+export function getArrowName(value: number) {
   if (value > 0) {
     return "up";
   } else if (value < 0) {
