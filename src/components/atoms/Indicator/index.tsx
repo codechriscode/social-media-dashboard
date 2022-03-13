@@ -16,7 +16,7 @@ export default function Indicator(props: {
       {value && arrow ? <Icon iconName={getArrowName(value)} /> : ""}
       <Typography variant="subtitle" style={{ color: `var(${getColor(value)})` }}>
         {`${Math.abs(value)}${percent ? "%" : ""} ${
-          period ? calcPeriod(period as number) : ""
+          typeof period === 'number' ? calcPeriod(period as number) : ""
         }`}
       </Typography>
     </Box>
