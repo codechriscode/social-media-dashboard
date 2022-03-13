@@ -1,4 +1,3 @@
-import React from "react";
 import "./App.css";
 import Box from "./components/atoms/Box";
 import Dashboard from "./components/template/Dashboard";

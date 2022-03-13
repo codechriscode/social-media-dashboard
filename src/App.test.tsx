@@ -1,47 +1,20 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom";
+import App from "./App";
 
-test('Renders two panels in the dashboard ', () => {
+it("Renders", () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  expect(screen.getByText("Social Media Dashboard")).toBeInTheDocument();
 });
 
-test('Top panel has a card for each medium', () => {
+// test("Renders two panels in the dashboard ", () => {});
 
-});
+// test("Draggable order is saved to localStorage and re-rendered");
 
-test('Overview panel has two cards for each medium', () => {
+// test("Top panel has a card for each medium", () => {});
 
-})
+// test("Overview panel has two cards for each medium", () => {});
 
-test('Mediums show in the same order in both panels', () => {
+// test("Dark mode choice is persisted to localStorage", () => {});
 
-})
-
-test('Dark mode choice is persisted to localStorage', () => {
-
-})
-
-test('Dark mode is shown according to localStorage', () => {
-
-})
-
-test('Date is correctly calculated', () => {
-
-})
-
-test('Hover changes card color', () => {
-
-})
-
-
-
-test('Number and period/% coloring', () => {
-
-})
-
-test('Icons match correct classes', () => {
-
-})
+// test("Dark mode is shown according to localStorage", () => {});
