@@ -7,7 +7,7 @@ import twitter from "../../../images/icon-twitter.svg";
 import instagram from "../../../images/icon-instagram.svg";
 import youtube from "../../../images/icon-youtube.svg";
 
-const iconLib: { [key: string]: { src: any; alt: string } } = {
+const iconLib = {
   down: {
     src: down,
     alt: "Red down arrow",
@@ -34,18 +34,22 @@ const iconLib: { [key: string]: { src: any; alt: string } } = {
   },
 };
 
+export type IconNames = keyof typeof iconLib;
 type IconProps = {
-  iconName: string;
+  iconName: IconNames | "";
   inline?: boolean;
 };
 
 export default function Icon(props: IconProps) {
   const { iconName, inline = true } = props;
-  return (
-    <img
-      src={iconLib[iconName].src}
-      alt={iconLib[iconName].alt}
-      className={inline ? "icon-inline" : ""}
-    />
-  );
+  const iconClass = inline ? "icon-inline" : "";
+  if (iconName !== "") {
+    return (
+      <img
+        src={iconLib[iconName].src}
+        alt={iconLib[iconName].alt}
+        className={iconClass}
+      />
+    );
+  } else return <span className={`${iconClass} empty`}></span>;
 }
