@@ -1,5 +1,4 @@
 import "./App.css";
-import Box from "./components/atoms/Box";
 import Dashboard from "./components/template/Dashboard";
 
 const recoverDarkMode = () => {
@@ -11,9 +10,7 @@ export default function App() {
   recoverDarkMode();
   return (
     <div className="App">
-      <Box boxClass="center-column">
         <Dashboard />
-      </Box>
     </div>
   );
 }
