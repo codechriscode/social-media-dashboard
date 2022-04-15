@@ -15,4 +15,4 @@ The commit history shows the progress and how each feature was built.
 
 ## About
 
-The project was built as a challenge in CodeSubmit with full intellectual property cession to the programmer ;)
+The project is currently being configured for GitHub Pages. It came to me as a challenge in CodeSubmit.

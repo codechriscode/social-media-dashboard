@@ -14,10 +14,11 @@ const allowDrop = (e: React.DragEvent<HTMLSpanElement>) => {
 };
 
 const getMediumFromCard = (card: HTMLElement) => {
-  return card.classList[card.classList.length-1];
+  return card.classList[card.classList.length - 1];
 };
 
 export default function Scoreboard() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [media, _] = useState(mock.media);
 
   const getPositions = () => {
