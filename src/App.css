@@ -17,6 +17,7 @@ body {
 *:not(.slider, body),
 *::before {
   transition: 0.5s;
+  user-select: none;
 }
 
 .app-background::before {

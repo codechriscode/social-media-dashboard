@@ -1,19 +1,21 @@
-import Typography from "../../atoms/Typography";
-import mock from "../../../mock/payload";
-
 import "../styles.css";
 
+import { MockType } from "../../../mock/payload";
 import { calcPeriod } from "../../../helpers";
 import MiniCard from "../../molecules/Cards/MiniCard";
 import SectionTitle from "../../molecules/SectionTitle";
 
-export default function Overview() {
+type OverviewProps = { media: MockType["media"] };
+
+export default function Overview(props: OverviewProps) {
+  const { media } = props;
+
   return (
     <>
       <SectionTitle content={`Overview - ${calcPeriod(0)}`} />
       <div className="grid-container">
-        {Object.keys(mock.media).map((mediumName) => {
-          const medium = mock.media[mediumName];
+        {Object.keys(media).map((mediumName) => {
+          const medium = media[mediumName];
           return medium.other_status.map((stat) => {
             return (
               <MiniCard

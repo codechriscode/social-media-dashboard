@@ -1,8 +1,8 @@
 import MainCard from "../../molecules/Cards/MainCard";
-import mock from "../../../mock/payload";
 
 import "../styles.css";
 import React, { useState } from "react";
+import { MockType } from "../../../mock/payload";
 
 const handleDragStart = (e: React.DragEvent<HTMLSpanElement>) => {
   const mediumName = getMediumFromCard(e.currentTarget);
@@ -17,9 +17,10 @@ const getMediumFromCard = (card: HTMLElement) => {
   return card.classList[card.classList.length - 1];
 };
 
-export default function Scoreboard() {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [media, _] = useState(mock.media);
+type ScoreboardProps = { media: MockType["media"]; period: MockType["period"] };
+
+export default function Scoreboard(props: ScoreboardProps) {
+  const { media, period } = props;
 
   const getPositions = () => {
     let lsPos = localStorage.getItem("mainCardPositions");
@@ -56,7 +57,7 @@ export default function Scoreboard() {
             ondrop={finishMove}
             name={medium.name}
             status={medium.status}
-            period={mock.period}
+            period={period}
             username={medium.username}
             key={identifier}
           />
