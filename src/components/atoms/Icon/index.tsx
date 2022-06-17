@@ -2,6 +2,7 @@ import "./styles.css";
 
 import down from "../../../images/icon-down.svg";
 import up from "../../../images/icon-up.svg";
+import threeDots from "../../../images/icon-three-dots.svg";
 import facebook from "../../../images/icon-facebook.svg";
 import twitter from "../../../images/icon-twitter.svg";
 import instagram from "../../../images/icon-instagram.svg";
@@ -15,6 +16,10 @@ const iconLib = {
   up: {
     src: up,
     alt: "Green up arrow",
+  },
+  threeDots: {
+    src: threeDots,
+    alt: "More options",
   },
   Facebook: {
     src: facebook,
