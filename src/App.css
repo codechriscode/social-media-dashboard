@@ -1,8 +1,19 @@
 body {
+  margin: 0;
+}
+
+.app-background {
+  position: static;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
   background: var(--bg-color-1);
 }
 
-*:not(.slider),
+*:not(.slider, body),
 *::before {
   transition: 0.5s;
 }
