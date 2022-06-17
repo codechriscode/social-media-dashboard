@@ -9,8 +9,10 @@ const recoverDarkMode = () => {
 export default function App() {
   recoverDarkMode();
   return (
-    <div className="App">
+    <div className="app-background">
+      <div className="App">
         <Dashboard />
+      </div>
     </div>
   );
 }
