@@ -5,15 +5,12 @@ import "../styles.css";
 
 import { calcPeriod } from "../../../helpers";
 import MiniCard from "../../molecules/Cards/MiniCard";
+import SectionTitle from "../../molecules/SectionTitle";
 
 export default function Overview() {
   return (
     <>
-      <div style={{ width: "100%" }}>
-        <Typography variant="title2">{`Overview - ${calcPeriod(
-          0
-        )}`}</Typography>
-      </div>
+      <SectionTitle content={`Overview - ${calcPeriod(0)}`} />
       <div className="grid-container">
         {Object.keys(mock.media).map((mediumName) => {
           const medium = mock.media[mediumName];
