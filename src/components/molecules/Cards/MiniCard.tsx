@@ -2,7 +2,7 @@ import Typography from "../../atoms/Typography";
 import Icon, { IconNames } from "../../atoms/Icon";
 import Indicator from "../../atoms/Indicator";
 import Box from "../../atoms/Box";
-import Card, { CardProps } from "./Card";
+import Card, { CardProps } from "../../atoms/Card";
 import { MediumInfoType, OtherStatusType } from "../../../mock/payload";
 
 import "./styles.css";

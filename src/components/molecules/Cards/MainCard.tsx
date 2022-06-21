@@ -1,4 +1,4 @@
-import Card, { CardProps } from "./Card";
+import Card, { CardProps } from "../../atoms/Card";
 import { MockType } from "../../../mock/payload";
 import Typography from "../../atoms/Typography";
 import Icon, {IconNames} from "../../atoms/Icon";

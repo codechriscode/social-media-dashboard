@@ -1,28 +1,6 @@
-.card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  border-radius: 3%;
-  background-color: var(--card-background);
-  width: 255px;
-}
-
-.card:hover {
-  background-color: var(--card-background-hover);
-  transform: scale(1.03, 1.03);
-  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
-  transition: 0.3s ease-in-out;
-}
-
 .mini.card {
   height: 125px;
   justify-content: space-evenly;
-}
-
-.card .corner-row {
-  width: 80%;
 }
 
 .main.card {
