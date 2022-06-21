@@ -2,21 +2,30 @@ import { useState } from "react";
 import FloatingButton, {
   FloatingButtonProps,
 } from "../../molecules/FloatingButton";
-import Overlay from "../../atoms/Overlay";
 import "./styles.css";
 
 const calculatePosition = (i: number) => (i + 1) * 70 + 40;
 
-export type FloatingMenuProps = { buttons: Array<FloatingButtonProps>, activateCallback?: () => {} };
+export type FloatingMenuProps = {
+  buttons: Array<FloatingButtonProps>;
+  onEnterCallback?: () => void;
+  onExitCallback?: () => void;
+};
 
 export default function FloatingMenu(props: FloatingMenuProps) {
-  const { buttons } = props;
+  const { buttons, onEnterCallback, onExitCallback } = props;
   const [open, setOpen] = useState(false);
 
-  function openMenu() {
+  function toggleMenu() {
     if (open) {
+      if (onExitCallback) {
+        onExitCallback();
+      }
       setOpen(false);
-    } else {
+    } else if (!open) {
+      if (onEnterCallback) {
+        onEnterCallback();
+      }
       setOpen(true);
     }
   }
@@ -28,7 +37,10 @@ export default function FloatingMenu(props: FloatingMenuProps) {
           <FloatingButton
             key={`${index}${button.name}`}
             name={button.name}
-            callback={button.callback}
+            callback={() => {
+              toggleMenu();
+              button.callback();
+            }}
             style={
               open
                 ? { bottom: `${calculatePosition(index)}px` }
@@ -36,9 +48,8 @@ export default function FloatingMenu(props: FloatingMenuProps) {
             }
           />
         ))}
-        <FloatingButton name="threeDots" callback={openMenu} />
+        <FloatingButton name="threeDots" callback={toggleMenu} />
       </div>
-      {open ? <Overlay /> : null}
     </>
   );
 }

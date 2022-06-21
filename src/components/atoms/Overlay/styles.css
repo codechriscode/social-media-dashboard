@@ -9,4 +9,5 @@
   background: var(--bg-color-overlay);
   display: flex;
   justify-content: center;
+  transition-delay: visibility 0.7s;
 }

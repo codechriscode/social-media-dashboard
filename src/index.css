@@ -6,9 +6,9 @@ html {
   --slider-gradient-2: hsl(146, 68%, 55%);
   --strong-text-color: hsl(230, 17%, 14%);
   --light-text-color: hsl(228, 12%, 44%);
-  --bg-color-overlay: hsla(225, 100%, 98%, 0.8);
+  --bg-color-overlay: hsla(233, 36%, 96%, 0.8);
   --bg-color-1: white;
-  --bg-color-2: hsl(225, 100%, 98%);
+  --bg-color-2: hsl(250, 100%, 99%);
   --change-positive: hsl(163, 72%, 41%);
   --change-negative: hsl(356, 69%, 56%);
 }
@@ -17,8 +17,8 @@ html[darkMode="true"] {
   --card-background: hsl(228, 28%, 20%);
   --card-background-hover: hsl(228, 28%, 27%);
   --strong-text-color: white;
-  --light-text-color: hsl(228, 34%, 66%);
-  --bg-color-overlay: hsla(232, 19%, 15%, 0.8);
+  --light-text-color: hsl(228, 41%, 71%);
+  --bg-color-overlay: hsla(234, 20%, 19%, 0.8);
   --bg-color-1: hsl(230, 17%, 14%);
   --bg-color-2: hsl(232, 19%, 15%);
 }

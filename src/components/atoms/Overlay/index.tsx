@@ -1,5 +1,8 @@
 import "./styles.css";
 
-export default function Overlay() {
-  return <div className="overlay"></div>;
+type OverlayProps = { style?: React.CSSProperties };
+
+export default function Overlay(props: OverlayProps) {
+  const { style } = props;
+  return <div style={style} className="overlay"></div>;
 }
