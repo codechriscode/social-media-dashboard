@@ -2,6 +2,12 @@ body {
   margin: 0;
 }
 
+*:not(.slider, body),
+*::before {
+  transition: 0.5s;
+  user-select: none;
+}
+
 .app-background {
   position: fixed;
   overflow-y: scroll;
@@ -12,12 +18,6 @@ body {
   background: var(--bg-color-1);
   display: flex;
   justify-content: center;
-}
-
-*:not(.slider, body),
-*::before {
-  transition: 0.5s;
-  user-select: none;
 }
 
 .app-background::before {
