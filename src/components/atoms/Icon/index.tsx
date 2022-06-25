@@ -2,6 +2,7 @@ import "./styles.css";
 
 import down from "../../../images/icon-down.svg";
 import up from "../../../images/icon-up.svg";
+import deleteIcon from "../../../images/icon-delete.svg";
 import threeDots from "../../../images/icon-three-dots.svg";
 import facebook from "../../../images/icon-facebook.svg";
 import twitter from "../../../images/icon-twitter.svg";
@@ -20,6 +21,10 @@ const iconLib = {
   threeDots: {
     src: threeDots,
     alt: "More options",
+  },
+  delete: {
+    src: deleteIcon,
+    alt: "Delete",
   },
   Facebook: {
     src: facebook,
