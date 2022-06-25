@@ -13,7 +13,7 @@ type Variant =
 type TypographyProps = {
   variant: Variant;
   children: string | number;
-  style?: {color: string}
+  style?: React.CSSProperties
 };
 
 export default function Typography(props: TypographyProps) {

@@ -12,6 +12,7 @@ export type CardProps = {
   ondrop?: React.DragEventHandler;
   id?: string;
   period?: number;
+  style?: React.CSSProperties;
 };
 
 export default function Card(props: CardProps) {
