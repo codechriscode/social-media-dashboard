@@ -2,11 +2,11 @@ import MainCard from "../../molecules/Cards/MainCard";
 
 import "../styles.css";
 import React, { useState } from "react";
-import { MockType } from "../../../mock/payload";
+import { PayloadType } from "../../../mock/payload";
 
 const handleDragStart = (e: React.DragEvent<HTMLSpanElement>) => {
-  const mediumName = getMediumFromCard(e.currentTarget);
-  e.dataTransfer.setData("dragged", mediumName);
+  const cnxID = getMediumFromCard(e.currentTarget);
+  e.dataTransfer.setData("dragged", cnxID);
 };
 
 const allowDrop = (e: React.DragEvent<HTMLSpanElement>) => {
@@ -14,10 +14,13 @@ const allowDrop = (e: React.DragEvent<HTMLSpanElement>) => {
 };
 
 const getMediumFromCard = (card: HTMLElement) => {
-  return card.classList[card.classList.length - 1];
+  return card.id;
 };
 
-type ScoreboardProps = { media: MockType["media"]; period: MockType["period"] };
+type ScoreboardProps = {
+  media: PayloadType["media"];
+  period: PayloadType["period"];
+};
 
 export default function Scoreboard(props: ScoreboardProps) {
   const { media, period } = props;
@@ -46,20 +49,21 @@ export default function Scoreboard(props: ScoreboardProps) {
 
   return (
     <div className="grid-container">
-      {positions.map((mediumName) => {
-        const medium = media[mediumName];
-        const identifier = `${medium.name}.${medium.username}.Main`;
+      {positions.map((cnxID) => {
+        const medium = media[cnxID];
+        const identifier = `${medium.socialNetwork}.${medium.username}.Main`;
         return (
           <MainCard
             draggable
             ondragstart={handleDragStart}
             ondragover={allowDrop}
             ondrop={finishMove}
-            name={medium.name}
+            socialNetwork={medium.socialNetwork}
             status={medium.status}
             period={period}
             username={medium.username}
             key={identifier}
+            id={cnxID}
           />
         );
       })}

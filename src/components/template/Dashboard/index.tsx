@@ -2,7 +2,7 @@ import Scoreboard from "../../organisms/Scoreboard";
 import TopPanel from "../../molecules/TopPanel";
 import { useState } from "react";
 
-import mock from "../../../mock/payload";
+import {mock} from "../../../mock/payload";
 import Overview from "../../organisms/Overview";
 import FloatingMenu, { FloatingMenuProps } from "../../organisms/FloatingMenu";
 import Card from "../../atoms/Card";
@@ -18,44 +18,61 @@ const recoverState = () => {
   }
 };
 
-const arrButtons: FloatingMenuProps["buttons"] = [
-  {
-    name: "Twitter",
-    callback: () => {
-      console.log("Clicked me!");
-    },
-  },
-  {
-    name: "Instagram",
-    callback: () => {
-      console.log("Insta");
-    },
-  },
-  {
-    name: "Facebook",
-    callback: () => {
-      console.log("Insta");
-    },
-  },
-  {
-    name: "YouTube",
-    callback: () => {
-      console.log("Insta");
-    },
-  },
-];
-
 export default function Dashboard() {
   const [data, setData] = useState(recoverState());
   // TODO update both data and localstorage on
 
-  const [overlayed, setOverlayed] = useState(false);
-  function activateOverlay() {
-    setOverlayed(true);
+  const [overlayed, setOverlayed] = useState<boolean>(false);
+
+  // function addNew(networkName: string, username: string) {
+  //   const newEntry = {
+  //     [netw]
+  //   };
+  // }
+
+  function removeAll() {
+    setData({});
   }
-  function disableOverlay() {
-    setOverlayed(false);
-  }
+
+  // const callbacks = {
+  //   addNew: addNew,
+  //   update: update,
+  //   remove: remove,
+  //   removeAll: removeAll,
+  // };
+
+  const arrButtons: FloatingMenuProps["buttons"] = [
+    {
+      name: "Twitter",
+      callback: () => {
+        console.log("Clicked me!");
+      },
+    },
+    {
+      name: "Instagram",
+      callback: () => {
+        console.log("Insta");
+      },
+    },
+    {
+      name: "Facebook",
+      callback: () => {
+        console.log("Insta");
+      },
+    },
+    {
+      name: "YouTube",
+      callback: () => {
+        console.log("Insta");
+      },
+    },
+    {
+      name: "delete",
+      callback: () => {
+        setData({});
+      },
+    },
+  ];
 
   return (
     <>
@@ -63,19 +80,12 @@ export default function Dashboard() {
       {Object.keys(data).length ? (
         <>
           <Scoreboard media={data.media} period={data.period} />
-          <Overview media={data.media} />
+          <Overview media={data.media} period={data.period} />
         </>
       ) : (
         <Card cardClass="main" />
       )}
-      <FloatingMenu
-        buttons={arrButtons}
-        onEnterCallback={activateOverlay}
-        onExitCallback={disableOverlay}
-      />
-      {
-        
-      }
+      <FloatingMenu buttons={arrButtons} overlayCallback={setOverlayed} />
       <Overlay
         style={
           overlayed

@@ -4,14 +4,14 @@ export type StatusType = {
 };
 
 export type MainStatusType = StatusType & { change: number };
-export type OtherStatusType = StatusType & { change_pc: number }
+export type OtherStatusType = StatusType & { change_pc: number };
 
 export type MediumInfoType = {
-  name: string;
+  socialNetwork: string;
   username: string;
 };
 
-export type MockType = {
+export type PayloadType = {
   period: number;
   total_followers: number;
   media: {
@@ -22,12 +22,12 @@ export type MockType = {
   };
 };
 
-const mock: MockType = {
+export const mock: PayloadType = {
   period: 0,
   total_followers: 23004,
   media: {
-    facebook: {
-      name: "Facebook",
+    "234634545": {
+      socialNetwork: "Facebook",
       username: "@nathanf",
       status: {
         value: 1987,
@@ -47,8 +47,29 @@ const mock: MockType = {
         },
       ],
     },
-    twitter: {
-      name: "Twitter",
+    "466533334": {
+      socialNetwork: "Facebook",
+      username: "@nathanfMemes",
+      status: {
+        value: 590,
+        unit: "followers",
+        change: 34,
+      },
+      other_status: [
+        {
+          unit: "page views",
+          value: 15,
+          change_pc: 12,
+        },
+        {
+          unit: "likes",
+          value: 40,
+          change_pc: 20,
+        },
+      ],
+    },
+    "2390423422": {
+      socialNetwork: "Twitter",
       username: "@nathanf",
       status: {
         value: 1044,
@@ -68,8 +89,8 @@ const mock: MockType = {
         },
       ],
     },
-    instagram: {
-      name: "Instagram",
+    "9342934923": {
+      socialNetwork: "Instagram",
       username: "@realnathanf",
       status: {
         value: 11734,
@@ -89,8 +110,8 @@ const mock: MockType = {
         },
       ],
     },
-    youtube: {
-      name: "YouTube",
+    "2943883829": {
+      socialNetwork: "YouTube",
       username: "Nathan F.",
       status: {
         value: 8239,
@@ -112,5 +133,3 @@ const mock: MockType = {
     },
   },
 };
-
-export default mock;

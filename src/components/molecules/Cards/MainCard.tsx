@@ -1,5 +1,5 @@
 import Card, { CardProps } from "../../atoms/Card";
-import { MockType } from "../../../mock/payload";
+import { PayloadType } from "../../../mock/payload";
 import Typography from "../../atoms/Typography";
 import Icon, {IconNames} from "../../atoms/Icon";
 import Indicator from "../../atoms/Indicator";
@@ -7,11 +7,11 @@ import Box from "../../atoms/Box";
 
 import { roundNum } from "../../../helpers";
 
-type MainCardProps = CardProps & Omit<MockType["media"][0], "other_status">;
+type MainCardProps = CardProps & Omit<PayloadType["media"][0], "other_status">;
 
 export default function MainCard(props: MainCardProps) {
   const {
-    name,
+    socialNetwork,
     period,
     username,
     status,
@@ -25,7 +25,7 @@ export default function MainCard(props: MainCardProps) {
 
   return (
     <Card
-      cardClass={`main ${name.toLowerCase()}`}
+      cardClass={`main ${socialNetwork.toLowerCase()}`}
       draggable={draggable}
       onclick={onclick}
       ondragstart={ondragstart}
@@ -35,7 +35,7 @@ export default function MainCard(props: MainCardProps) {
       period={period}
     >
       <Box boxClass="center-row">
-        <Icon iconName={name as IconNames} />
+        <Icon iconName={socialNetwork as IconNames} />
         <Typography variant="profile-name">{username}</Typography>
       </Box>
       <Box boxClass="center-column">
