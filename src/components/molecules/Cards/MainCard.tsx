@@ -1,7 +1,8 @@
 import Card, { CardProps } from "../../atoms/Card";
-import { PayloadType } from "../../../mock/payload";
+import { PayloadType } from "../../../store/payload";
+import { SocialNetworkNames } from "../../../store/socialNetworks";
 import Typography from "../../atoms/Typography";
-import Icon, {IconNames} from "../../atoms/Icon";
+import Icon from "../../atoms/Icon";
 import Indicator from "../../atoms/Indicator";
 import Box from "../../atoms/Box";
 
@@ -35,7 +36,7 @@ export default function MainCard(props: MainCardProps) {
       period={period}
     >
       <Box boxClass="center-row">
-        <Icon iconName={socialNetwork as IconNames} />
+        <Icon iconName={socialNetwork as SocialNetworkNames} />
         <Typography variant="profile-name">{username}</Typography>
       </Box>
       <Box boxClass="center-column">

@@ -2,7 +2,7 @@ import MainCard from "../../molecules/Cards/MainCard";
 
 import "../styles.css";
 import React, { useState } from "react";
-import { PayloadType } from "../../../mock/payload";
+import { PayloadType } from "../../../store/payload";
 
 const handleDragStart = (e: React.DragEvent<HTMLSpanElement>) => {
   const cnxID = getMediumFromCard(e.currentTarget);

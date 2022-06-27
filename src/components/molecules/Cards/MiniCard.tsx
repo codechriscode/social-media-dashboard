@@ -1,9 +1,10 @@
 import Typography from "../../atoms/Typography";
-import Icon, { IconNames } from "../../atoms/Icon";
+import Icon from "../../atoms/Icon";
+import { SocialNetworkNames } from "../../../store/socialNetworks";
 import Indicator from "../../atoms/Indicator";
 import Box from "../../atoms/Box";
 import Card, { CardProps } from "../../atoms/Card";
-import { MediumInfoType, OtherStatusType } from "../../../mock/payload";
+import { MediumInfoType, OtherStatusType } from "../../../store/payload";
 
 import "./styles.css";
 import { roundNum } from "../../../helpers";
@@ -23,7 +24,7 @@ export default function MiniCard(props: MiniCardProps) {
             {username}
           </Typography>
         </div>
-        <Icon iconName={socialNetwork as IconNames} />
+        <Icon iconName={socialNetwork as SocialNetworkNames} />
       </Box>
       <Box boxClass="corner-row" style={{ alignItems: "baseline" }}>
         <Typography variant="spotlight-num2">
