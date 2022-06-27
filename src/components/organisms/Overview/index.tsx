@@ -1,6 +1,6 @@
 import "../styles.css";
 
-import { PayloadType } from "../../../mock/payload";
+import { PayloadType } from "../../../store/payload";
 import { calcPeriod } from "../../../helpers";
 import MiniCard from "../../molecules/Cards/MiniCard";
 import Typography from "../../atoms/Typography";

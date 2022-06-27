@@ -8,8 +8,14 @@ import facebook from "../../../images/icon-facebook.svg";
 import twitter from "../../../images/icon-twitter.svg";
 import instagram from "../../../images/icon-instagram.svg";
 import youtube from "../../../images/icon-youtube.svg";
+import { SocialNetworkNames } from "../../../store/socialNetworks";
 
-const iconLib = {
+const iconLib: {
+  [key: SocialNetworkNames | string]: {
+    src: any;
+    alt: string;
+  };
+} = {
   down: {
     src: down,
     alt: "Red down arrow",
