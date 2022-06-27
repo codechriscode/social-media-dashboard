@@ -9,16 +9,21 @@ import "./styles.css";
 import { roundNum } from "../../../helpers";
 
 type MiniCardProps = CardProps &
-  Omit<MediumInfoType, "username"> & { other_status: OtherStatusType };
+  MediumInfoType & { other_status: OtherStatusType };
 
 export default function MiniCard(props: MiniCardProps) {
-  const { name, other_status } = props;
+  const { socialNetwork, username, other_status } = props;
 
   return (
     <Card cardClass="mini">
       <Box boxClass="corner-row">
-        <Typography variant="subtitle">{other_status.unit}</Typography>
-        <Icon iconName={name as IconNames} />
+        <div>
+          <Typography variant="subtitle">{other_status.unit}</Typography>
+          <Typography variant="profile-name" style={{ opacity: 0.3 }}>
+            {username}
+          </Typography>
+        </div>
+        <Icon iconName={socialNetwork as IconNames} />
       </Box>
       <Box boxClass="corner-row" style={{ alignItems: "baseline" }}>
         <Typography variant="spotlight-num2">
