@@ -1,3 +1,5 @@
+import { SocialNetworkNames } from "./socialNetworks";
+
 export type StatusType = {
   value: number;
   unit: string;
@@ -7,19 +9,21 @@ export type MainStatusType = StatusType & { change: number };
 export type OtherStatusType = StatusType & { change_pc: number };
 
 export type MediumInfoType = {
-  socialNetwork: string;
+  socialNetwork: SocialNetworkNames;
   username: string;
+};
+
+export type MediaType = {
+  [key: string]: MediumInfoType & {
+    status: MainStatusType;
+    other_status: OtherStatusType[];
+  };
 };
 
 export type PayloadType = {
   period: number;
   total_followers: number;
-  media: {
-    [key: string]: MediumInfoType & {
-      status: MainStatusType;
-      other_status: OtherStatusType[];
-    };
-  };
+  media: MediaType | {};
 };
 
 export const mock: PayloadType = {

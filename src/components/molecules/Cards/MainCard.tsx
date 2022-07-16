@@ -1,5 +1,5 @@
 import Card, { CardProps } from "../../atoms/Card";
-import { PayloadType } from "../../../store/payload";
+import { MediaType } from "../../../store/payload";
 import { SocialNetworkNames } from "../../../store/socialNetworks";
 import Typography from "../../atoms/Typography";
 import Icon from "../../atoms/Icon";
@@ -8,7 +8,7 @@ import Box from "../../atoms/Box";
 
 import { roundNum } from "../../../helpers";
 
-type MainCardProps = CardProps & Omit<PayloadType["media"][0], "other_status">;
+type MainCardProps = CardProps & Omit<MediaType[0], "other_status">;
 
 export default function MainCard(props: MainCardProps) {
   const {
