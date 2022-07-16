@@ -1,31 +1,36 @@
-import { useState } from "react";
-import FloatingButton, {
-  FloatingButtonProps,
-} from "../../molecules/FloatingButton";
+import { Dispatch, SetStateAction, useState } from "react";
+import {
+  SocialNetworkNames,
+  socialNetworks,
+} from "../../../store/socialNetworks";
+import { IconNames } from "../../atoms/Icon";
+import FloatingButton from "../../molecules/FloatingButton";
+import Modal from "../../molecules/Modal";
+import AddOrEdit from "../../molecules/ModalContents/AddOrEdit";
 import "./styles.css";
 
 const calculatePosition = (i: number) => (i + 1) * 70 + 40;
 
 export type FloatingMenuProps = {
-  buttons: Array<FloatingButtonProps>;
-  onEnterCallback?: () => void;
-  onExitCallback?: () => void;
+  buttons: Array<IconNames>;
+  callbacks?: {
+    [key: string | "setOverlay"]: (...args: any) => any;
+  };
 };
 
 export default function FloatingMenu(props: FloatingMenuProps) {
-  const { buttons, onEnterCallback, onExitCallback } = props;
+  const { buttons, callbacks } = props;
   const [open, setOpen] = useState(false);
+  const [chosenNetwork, setChosenNetwork] = useState<SocialNetworkNames | null>(
+    null
+  );
 
   function toggleMenu() {
     if (open) {
-      if (onExitCallback) {
-        onExitCallback();
-      }
+      callbacks && !chosenNetwork && callbacks.setOverlay(false);
       setOpen(false);
     } else if (!open) {
-      if (onEnterCallback) {
-        onEnterCallback();
-      }
+      callbacks && callbacks.setOverlay(true);
       setOpen(true);
     }
   }
@@ -33,13 +38,16 @@ export default function FloatingMenu(props: FloatingMenuProps) {
   return (
     <>
       <div className="floating-menu">
-        {buttons.map((button, index) => (
+        {buttons.map((iconName, index) => (
           <FloatingButton
-            key={`${index}${button.name}`}
-            name={button.name}
+            key={`${index}${iconName}`}
+            name={iconName}
             callback={() => {
+              if (iconName in Object.keys(socialNetworks)) {
+                setChosenNetwork(iconName as SocialNetworkNames);
+              }
               toggleMenu();
-              button.callback();
+              callbacks && callbacks.setOverlay(true);
             }}
             style={
               open
@@ -50,6 +58,21 @@ export default function FloatingMenu(props: FloatingMenuProps) {
         ))}
         <FloatingButton name="threeDots" callback={toggleMenu} />
       </div>
+      {chosenNetwork && (
+        <Modal>
+          <AddOrEdit
+            networkName={chosenNetwork}
+            onChangeCallback={(sn: SocialNetworkNames) => {
+              setChosenNetwork(sn);
+            }}
+            onSaveCallback={callbacks && callbacks.addNew}
+            onExitCallback={() => {
+              setChosenNetwork(null);
+              callbacks && callbacks.setOverlay(false);
+            }}
+          />
+        </Modal>
+      )}
     </>
   );
 }

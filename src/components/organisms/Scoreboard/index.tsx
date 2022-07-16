@@ -2,7 +2,7 @@ import MainCard from "../../molecules/Cards/MainCard";
 
 import "../styles.css";
 import React, { useState } from "react";
-import { PayloadType } from "../../../store/payload";
+import { PayloadType, MediaType } from "../../../store/payload";
 
 const handleDragStart = (e: React.DragEvent<HTMLSpanElement>) => {
   const cnxID = getMediumFromCard(e.currentTarget);
@@ -18,7 +18,7 @@ const getMediumFromCard = (card: HTMLElement) => {
 };
 
 type ScoreboardProps = {
-  media: PayloadType["media"];
+  media: MediaType;
   period: PayloadType["period"];
 };
 
@@ -31,7 +31,7 @@ export default function Scoreboard(props: ScoreboardProps) {
     return Object.keys(media);
   };
 
-  const [positions, setPositions] = useState(getPositions());
+  const [positions, setPositions] = useState<string[]>(getPositions());
 
   const finishMove = (e: React.DragEvent<HTMLElement>) => {
     const beingDropped = e.dataTransfer.getData("dragged");

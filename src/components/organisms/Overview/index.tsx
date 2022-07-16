@@ -1,11 +1,14 @@
 import "../styles.css";
 
-import { PayloadType } from "../../../store/payload";
+import { PayloadType, MediaType } from "../../../store/payload";
 import { calcPeriod } from "../../../helpers";
 import MiniCard from "../../molecules/Cards/MiniCard";
 import Typography from "../../atoms/Typography";
 
-type OverviewProps = { media: PayloadType["media"]; period: PayloadType["period"] };
+type OverviewProps = {
+  media: MediaType;
+  period: PayloadType["period"];
+};
 
 export default function Overview(props: OverviewProps) {
   const { media, period } = props;

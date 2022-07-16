@@ -3,7 +3,7 @@ import "./styles.css";
 
 export type FloatingButtonProps = {
   name: IconNames;
-  callback: () => void;
+  callback?: () => void;
   style?: React.CSSProperties;
 };
 
@@ -11,7 +11,7 @@ export default function FloatingButton(props: FloatingButtonProps) {
   const { name, callback, style } = props;
 
   function clickHandler() {
-    callback();
+    callback && callback();
   }
 
   return (

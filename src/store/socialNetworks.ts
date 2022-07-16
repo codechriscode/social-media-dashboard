@@ -1,4 +1,4 @@
-export type SocialNetworkNames = "Twitter" | "Facebook" | "Instagram" | "YouTube"
+export type SocialNetworkNames = keyof typeof socialNetworks;
 
 export const socialNetworks = {
   Facebook: {
@@ -7,8 +7,8 @@ export const socialNetworks = {
     address: "facebook.com",
     metrics: {
       main: "followers",
-      other: ["page views", "likes"]
-    }
+      other: ["page views", "likes"],
+    },
   },
   Instagram: {
     name: "Instagram",
@@ -16,8 +16,8 @@ export const socialNetworks = {
     address: "instagram.com",
     metrics: {
       main: "followers",
-      other: ["likes", "profile views"]
-    }
+      other: ["likes", "profile views"],
+    },
   },
   YouTube: {
     name: "YouTube",
@@ -25,8 +25,8 @@ export const socialNetworks = {
     address: "youtube.com",
     metrics: {
       main: "subscribers",
-      other: ["likes", "total views"]
-    }
+      other: ["likes", "total views"],
+    },
   },
   Twitter: {
     name: "Twitter",
@@ -34,7 +34,7 @@ export const socialNetworks = {
     address: "twitter.com",
     metrics: {
       main: "followers",
-      other: ["retweets", "likes"]
-    }
-  }
-}
+      other: ["retweets", "likes"],
+    },
+  },
+};
