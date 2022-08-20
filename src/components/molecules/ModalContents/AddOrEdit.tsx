@@ -46,10 +46,6 @@ export default function AddOrEdit(props: AddOrEditProps) {
       </Box>
       <form>
         <label>
-          <Typography variant="subtitle">Add Mocked</Typography>
-          <input type="checkbox" />
-        </label>
-        <label>
           <Typography variant="subtitle">Social Network</Typography>
           <select
             name="Social Network"
