@@ -4,6 +4,7 @@ import down from "../../../images/icon-down.svg";
 import up from "../../../images/icon-up.svg";
 import deleteIcon from "../../../images/icon-delete.svg";
 import threeDots from "../../../images/icon-three-dots.svg";
+import famous from "../../../images/icon-famous.png";
 import facebook from "../../../images/icon-facebook.svg";
 import twitter from "../../../images/icon-twitter.svg";
 import instagram from "../../../images/icon-instagram.svg";
@@ -31,6 +32,10 @@ const iconLib: {
   delete: {
     src: deleteIcon,
     alt: "Delete",
+  },
+  famous: {
+    src: famous,
+    alt: "You are famous"
   },
   Facebook: {
     src: facebook,
