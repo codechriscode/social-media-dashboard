@@ -5,6 +5,7 @@
 
 .main.card {
   height: 220px;
+  cursor: grab;
 }
 
 .main.card::before {
@@ -31,4 +32,20 @@
 
 .instagram.main.card::before {
   background: linear-gradient(to right, hsl(37, 97%, 70%), hsl(329, 70%, 58%));
+}
+
+@media screen and (max-width: 625px) {
+  .card.main::before,
+  .card.main,
+  .card.mini {
+    width: 320px;
+  }
+}
+
+@media screen and (min-width: 625px) {
+  .card.main::before,
+  .card.main,
+  .card.mini {
+    width: 255px;
+  }
 }
