@@ -5,6 +5,7 @@ import up from "../../../images/icon-up.svg";
 import deleteIcon from "../../../images/icon-delete.svg";
 import threeDots from "../../../images/icon-three-dots.svg";
 import famous from "../../../images/icon-famous.png";
+import grab from "../../../images/icon-grab.png";
 import facebook from "../../../images/icon-facebook.svg";
 import twitter from "../../../images/icon-twitter.svg";
 import instagram from "../../../images/icon-instagram.svg";
@@ -36,6 +37,10 @@ const iconLib: {
   famous: {
     src: famous,
     alt: "You are famous"
+  },
+  grab: {
+    src: grab,
+    alt: "Try grabbing"
   },
   Facebook: {
     src: facebook,
