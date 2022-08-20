@@ -6,9 +6,7 @@ import Overview from "../../organisms/Overview";
 import FloatingMenu from "../../organisms/FloatingMenu";
 import Overlay from "../../atoms/Overlay";
 import AppContext from "../../../store/AppContext";
-import Typography from "../../atoms/Typography";
-import Icon from "../../atoms/Icon";
-import Box from "../../atoms/Box";
+import GetStarted from "../../molecules/GetStarted";
 
 export default function Dashboard() {
   const ctx = useContext(AppContext);
@@ -25,10 +23,7 @@ export default function Dashboard() {
             <Overview media={ctx.profiles.state.media} period={ctx.profiles.state.period} order={ctx.profiles.positions} />
           </>
         ) : (
-          <Box boxClass="center-column">
-            <Icon iconName="famous" />
-            <Typography variant="title2">Click the menu to get started</Typography>
-          </Box>
+          <GetStarted />
         )}
       </main>
       <FloatingMenu buttons={menuButtons} />
