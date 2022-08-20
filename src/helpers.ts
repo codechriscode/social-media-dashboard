@@ -1,3 +1,5 @@
+import { SocialNetworkNames, socialNetworks } from "./store/socialNetworks";
+
 export function roundNum(value: number): string {
   let sign = "";
   if (value < 0) sign = "-";
@@ -48,3 +50,36 @@ export function commaSeparate(num: number) {
     numberPart.replace(thousands, ",") + (decimalPart ? "." + decimalPart : "")
   );
 }
+
+export function plusOrMinus() {
+  return Math.trunc(Math.random() * 10) % 2 ? -1 : 1
+}
+
+export const generateMockProfile = (networkName: SocialNetworkNames, username: string) => {
+  const networkParams = socialNetworks[networkName];
+  const cnxID = `${Math.trunc(Math.random() * 10000000000)}`;
+  const newEntry = {
+    [cnxID]: {
+      socialNetwork: networkName,
+      username: username,
+      status: {
+        value: Math.trunc(Math.random() * 1500000),
+        unit: networkParams.metrics.main,
+        change: Math.trunc(Math.random() * 1500 * plusOrMinus()),
+      },
+      other_status: [
+        {
+          unit: networkParams.metrics.other[0],
+          value: Math.trunc(Math.random() * 15000),
+          change_pc: Math.trunc(Math.random() * 100 * plusOrMinus()),
+        },
+        {
+          unit: networkParams.metrics.other[1],
+          value: Math.trunc(Math.random() * 15000),
+          change_pc: Math.trunc(Math.random() * 100 * plusOrMinus()),
+        },
+      ],
+    },
+  };
+  return newEntry;
+};
