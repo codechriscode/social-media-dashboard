@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   socialNetworks,
   SocialNetworkNames,
@@ -10,8 +10,8 @@ import Typography from "../../atoms/Typography";
 type AddOrEditProps = {
   networkName: SocialNetworkNames;
   onEnterCallback?: () => void;
-  onSaveCallback?: () => void;
-  onExitCallback?: () => void;
+  onSaveCallback?: (...args: any) => void;
+  onExitCallback?: (...args: any) => void;
   onChangeCallback?: (sn: SocialNetworkNames) => void;
 };
 
@@ -23,12 +23,17 @@ export default function AddOrEdit(props: AddOrEditProps) {
     onExitCallback,
     onChangeCallback,
   } = props;
+  const [username, setUsername] = useState<string>();
 
   onEnterCallback && onEnterCallback();
 
   function selectChangeHandler(e: React.ChangeEvent<HTMLSelectElement>) {
     onChangeCallback &&
       onChangeCallback(e.target.value as SocialNetworkNames);
+  }
+
+  function usernameChangeHandler(e: React.ChangeEvent<HTMLInputElement>) {
+    setUsername(e.target.value);
   }
 
   return (
@@ -48,28 +53,37 @@ export default function AddOrEdit(props: AddOrEditProps) {
           <Typography variant="subtitle">Social Network</Typography>
           <select
             name="Social Network"
-            style={{}}
-            value={networkName.toLowerCase()}
+            value={networkName}
             onChange={selectChangeHandler}
           >
             {Object.keys(socialNetworks).map((sn) => (
-              <option value={sn}>{sn}</option>
+              <option value={sn} key={sn}>{sn}</option>
             ))}
           </select>
         </label>
         <label>
           <Typography variant="subtitle">Username</Typography>
-          <input id="username" type="text" />
+          <input id="username" type="text" value={username} onChange={usernameChangeHandler} />
         </label>
-        <div style={{ marginBottom: "2vh", marginTop: "2vh" }}>
+        <div className="form-options">
           <input
             type="submit"
             value="Authorize"
             onClick={(e) => {
               e.preventDefault();
-              onSaveCallback && onSaveCallback();
+              onSaveCallback && onSaveCallback(networkName, username);
+              onExitCallback && onExitCallback();
             }}
           />
+          <button
+            className="cancel"
+            onClick={(e) => {
+              e.preventDefault();
+              
+              onExitCallback && onExitCallback()
+            }}>
+            Cancel
+          </button>
         </div>
       </form>
     </>
