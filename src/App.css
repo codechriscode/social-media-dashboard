@@ -2,6 +2,18 @@ body {
   margin: 0;
 }
 
+footer {
+  height: 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+footer a {
+  text-decoration: none;
+}
+
 *:not(.slider, body),
 *::before {
   transition: 0.5s;
@@ -35,10 +47,6 @@ body {
 
 @media screen and (max-width: 625px) {
   .App {
-    width: 320px;
-  }
-  .card.main,
-  .card.mini {
     width: 320px;
   }
 }

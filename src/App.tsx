@@ -1,4 +1,5 @@
 import "./App.css";
+import AppFooter from "./components/molecules/AppFooter";
 import Dashboard from "./components/template/Dashboard";
 
 const recoverDarkMode = () => {
@@ -12,6 +13,7 @@ export default function App() {
     <div className="app-background">
       <div className="App">
         <Dashboard />
+        <AppFooter />
       </div>
     </div>
   );
