@@ -1,19 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.eb7d773c.css",
-    "main.js": "/static/js/main.1613f848.js",
-    "static/media/icon-instagram.svg": "/static/media/icon-instagram.568b5795d56c7d9247f495cb5488f8be.svg",
-    "static/media/icon-twitter.svg": "/static/media/icon-twitter.a0c5f64d440de29ad911970d8d8eb821.svg",
-    "index.html": "/index.html",
-    "static/media/icon-youtube.svg": "/static/media/icon-youtube.cad14335e1f2ede979c61c8cb1a6f6f5.svg",
-    "static/media/icon-facebook.svg": "/static/media/icon-facebook.8deee3e3b5c57f63a1f487e146852570.svg",
-    "static/media/icon-down.svg": "/static/media/icon-down.0c77426d8f1ab70c4ae629868c263878.svg",
-    "static/media/icon-up.svg": "/static/media/icon-up.359200b20d83a37cfb26d6de21236570.svg",
-    "main.eb7d773c.css.map": "/static/css/main.eb7d773c.css.map",
-    "main.1613f848.js.map": "/static/js/main.1613f848.js.map"
+    "main.css": "/social-media-dashboard/static/css/main.34e0c7d6.css",
+    "main.js": "/social-media-dashboard/static/js/main.3629709f.js",
+    "static/media/icon-three-dots.svg": "/social-media-dashboard/static/media/icon-three-dots.bdd248d64ef685ce0b44f960bb6801fe.svg",
+    "static/media/icon-instagram.svg": "/social-media-dashboard/static/media/icon-instagram.568b5795d56c7d9247f495cb5488f8be.svg",
+    "static/media/icon-delete.svg": "/social-media-dashboard/static/media/icon-delete.d1789ad565d1bdf5f15d1dc45a159813.svg",
+    "static/media/icon-twitter.svg": "/social-media-dashboard/static/media/icon-twitter.a0c5f64d440de29ad911970d8d8eb821.svg",
+    "index.html": "/social-media-dashboard/index.html",
+    "static/media/icon-youtube.svg": "/social-media-dashboard/static/media/icon-youtube.cad14335e1f2ede979c61c8cb1a6f6f5.svg",
+    "static/media/icon-facebook.svg": "/social-media-dashboard/static/media/icon-facebook.8deee3e3b5c57f63a1f487e146852570.svg",
+    "static/media/icon-down.svg": "/social-media-dashboard/static/media/icon-down.0c77426d8f1ab70c4ae629868c263878.svg",
+    "static/media/icon-up.svg": "/social-media-dashboard/static/media/icon-up.359200b20d83a37cfb26d6de21236570.svg",
+    "main.34e0c7d6.css.map": "/social-media-dashboard/static/css/main.34e0c7d6.css.map",
+    "main.3629709f.js.map": "/social-media-dashboard/static/js/main.3629709f.js.map"
   },
   "entrypoints": [
-    "static/css/main.eb7d773c.css",
-    "static/js/main.1613f848.js"
+    "static/css/main.34e0c7d6.css",
+    "static/js/main.3629709f.js"
   ]
 }
