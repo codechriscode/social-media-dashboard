@@ -1,7 +1,8 @@
 import MainCard from "../../molecules/Cards/MainCard";
+import AppContext from "../../../store/AppContext";
 
 import "../styles.css";
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { PayloadType, MediaType } from "../../../store/payload";
 
 const handleDragStart = (e: React.DragEvent<HTMLSpanElement>) => {
@@ -23,17 +24,11 @@ type ScoreboardProps = {
 };
 
 export default function Scoreboard(props: ScoreboardProps) {
+  const ctx = useContext(AppContext);
   const { media, period } = props;
 
-  const getPositions = () => {
-    let lsPos = localStorage.getItem("mainCardPositions");
-    if (lsPos) return JSON.parse(lsPos) as Array<string>;
-    return Object.keys(media);
-  };
-
-  const [positions, setPositions] = useState<string[]>(getPositions());
-
   const finishMove = (e: React.DragEvent<HTMLElement>) => {
+    const positions = ctx.profiles.positions
     const beingDropped = e.dataTransfer.getData("dragged");
     const droppedOver = getMediumFromCard(e.currentTarget);
     const newIndex = positions.findIndex((medium) => medium === droppedOver);
@@ -42,14 +37,13 @@ export default function Scoreboard(props: ScoreboardProps) {
     let newPositions = [...positions];
     newPositions.splice(oldIndex, 1);
     newPositions.splice(newIndex, 0, beingDropped);
-    // update state and localStorage
-    setPositions(newPositions);
-    localStorage.setItem("mainCardPositions", JSON.stringify(newPositions));
+
+    ctx.profiles.setPositions(newPositions);
   };
 
   return (
     <div className="grid-container">
-      {positions.map((cnxID) => {
+      {ctx.profiles.positions.map((cnxID) => {
         const medium = media[cnxID];
         const identifier = `${medium.socialNetwork}.${medium.username}.Main`;
         return (
