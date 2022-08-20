@@ -8,10 +8,11 @@ import Typography from "../../atoms/Typography";
 type OverviewProps = {
   media: MediaType;
   period: PayloadType["period"];
+  order: Array<string>;
 };
 
 export default function Overview(props: OverviewProps) {
-  const { media, period } = props;
+  const { media, period, order } = props;
 
   return (
     <>
@@ -21,7 +22,7 @@ export default function Overview(props: OverviewProps) {
         )}`}</Typography>
       </div>
       <div className="grid-container">
-        {Object.keys(media).map((cnxID) => {
+        {order.map((cnxID) => {
           const medium = media[cnxID];
           return medium.other_status.map((stat) => {
             return (
