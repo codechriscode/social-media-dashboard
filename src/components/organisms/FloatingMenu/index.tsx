@@ -1,4 +1,5 @@
-import { Dispatch, SetStateAction, useState } from "react";
+import { useState, useContext } from "react";
+import AppContext from "../../../store/AppContext";
 import {
   SocialNetworkNames,
   socialNetworks,
@@ -13,13 +14,12 @@ const calculatePosition = (i: number) => (i + 1) * 70 + 40;
 
 export type FloatingMenuProps = {
   buttons: Array<IconNames>;
-  callbacks?: {
-    [key: string | "setOverlay"]: (...args: any) => any;
-  };
 };
 
 export default function FloatingMenu(props: FloatingMenuProps) {
-  const { buttons, callbacks } = props;
+  const ctx = useContext(AppContext);
+
+  const { buttons } = props;
   const [open, setOpen] = useState(false);
   const [chosenNetwork, setChosenNetwork] = useState<SocialNetworkNames | null>(
     null
@@ -27,10 +27,10 @@ export default function FloatingMenu(props: FloatingMenuProps) {
 
   function toggleMenu() {
     if (open) {
-      callbacks && !chosenNetwork && callbacks.setOverlay(false);
+      ctx.overlay.removeCall();
       setOpen(false);
     } else if (!open) {
-      callbacks && callbacks.setOverlay(true);
+      ctx.overlay.addCall();
       setOpen(true);
     }
   }
@@ -43,11 +43,13 @@ export default function FloatingMenu(props: FloatingMenuProps) {
             key={`${index}${iconName}`}
             name={iconName}
             callback={() => {
-              if (iconName in Object.keys(socialNetworks)) {
+              if (Object.keys(socialNetworks).includes(iconName as string)) {
                 setChosenNetwork(iconName as SocialNetworkNames);
+                ctx.overlay.addCall();
+              } else if (iconName === "delete") {
+                ctx.profiles.removeAll();
               }
               toggleMenu();
-              callbacks && callbacks.setOverlay(true);
             }}
             style={
               open
@@ -65,10 +67,10 @@ export default function FloatingMenu(props: FloatingMenuProps) {
             onChangeCallback={(sn: SocialNetworkNames) => {
               setChosenNetwork(sn);
             }}
-            onSaveCallback={callbacks && callbacks.addNew}
+            onSaveCallback={ctx.profiles.add}
             onExitCallback={() => {
               setChosenNetwork(null);
-              callbacks && callbacks.setOverlay(false);
+              ctx.overlay.removeCall();
             }}
           />
         </Modal>
