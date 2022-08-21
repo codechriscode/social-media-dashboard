@@ -1,7 +1,7 @@
-import { createContext, useState, useEffect } from 'react';
-import { generateMockProfile } from '../helpers';
+import { createContext, useState, useEffect } from "react";
+import { generateMockProfile } from "../helpers";
 import { MediaType, mock, PayloadType } from "./payload";
-import { SocialNetworkNames, socialNetworks } from './socialNetworks';
+import { SocialNetworkNames, socialNetworks } from "./socialNetworks";
 
 const recoverPayloadFromLocalStorage = () => {
   const localMock = localStorage.getItem("payload");
@@ -25,66 +25,73 @@ const emptyPayload: PayloadType = {
 };
 
 type contextType = {
-  socialNetworks: typeof socialNetworks,
+  socialNetworks: typeof socialNetworks;
   overlay: {
-    state: number,
-    addCall: () => void,
-    removeCall: () => void
-  },
+    state: number;
+    addCall: () => void;
+    removeCall: () => void;
+  };
   profiles: {
-    state: PayloadType,
-    add: (networkName: SocialNetworkNames, username: string) => void,
-    remove: (cnxID: string) => void,
-    removeAll: () => void,
-    positions: Array<string>,
-    setPositions: (positions: Array<string>) => void
-  }
-}
+    state: PayloadType;
+    add: (networkName: SocialNetworkNames, username: string) => void;
+    remove: (cnxID: string) => void;
+    removeAll: () => void;
+    positions: Array<string>;
+    setPositions: (positions: Array<string>) => void;
+  };
+};
 
 // TODO check if initial value is at all needed with TS
 const AppContext = createContext<contextType>({
   socialNetworks: socialNetworks,
   overlay: {
     state: 0,
-    addCall: () => { },
-    removeCall: () => { }
+    addCall: () => {},
+    removeCall: () => {},
   },
   profiles: {
     state: emptyPayload,
-    add: (networkName: SocialNetworkNames, username: string) => { },
-    remove: (cnxID: string) => { },
-    removeAll: () => { },
+    add: (networkName: SocialNetworkNames, username: string) => {},
+    remove: (cnxID: string) => {},
+    removeAll: () => {},
     positions: [],
-    setPositions: (positions: Array<string>) => { }
-  }
-})
+    setPositions: (positions: Array<string>) => {},
+  },
+});
 
 export function AppContextProvider(props: any) {
   //Profiles
-  const [data, setData] = useState<PayloadType>(() => (recoverPayloadFromLocalStorage()));
+  const [data, setData] = useState<PayloadType>(() =>
+    recoverPayloadFromLocalStorage()
+  );
   //Overlay
   const [overlay, setOverlay] = useState<number>(0);
   //Profile display order
-  const [positions, setPositions] = useState<string[]>(recoverPositionsFromLocalStorage(data.media));
+  const [positions, setPositions] = useState<string[]>(
+    recoverPositionsFromLocalStorage(data.media)
+  );
 
   function addOverlayCallHandler() {
-    setOverlay(prevOverlayValue => (prevOverlayValue + 1))
+    setOverlay((prevOverlayValue) => prevOverlayValue + 1);
   }
 
   function removeOverlayCallHandler() {
-    setOverlay(prevOverlayValue => (prevOverlayValue - 1))
+    setOverlay((prevOverlayValue) => prevOverlayValue - 1);
   }
 
-  const addProfileHandler = (networkName: SocialNetworkNames, username: string) => {
+  const addProfileHandler = (
+    networkName: SocialNetworkNames,
+    username: string
+  ) => {
     const newEntry = generateMockProfile(networkName, username);
-    const newCnxID = Object.keys(newEntry)[0]
+    const newCnxID = Object.keys(newEntry)[0];
     const newTotal = data.total_followers + newEntry[newCnxID].status.value;
-    setData(prevState => ({
+    setData((prevState) => ({
       ...prevState,
       total_followers: newTotal,
       media: { ...prevState.media, ...newEntry },
     }));
-    setPositions(prevPositions => ([newCnxID, ...prevPositions]));
+    setPositions((prevPositions) => [newCnxID, ...prevPositions]);
   };
 
   const removeProfileHandler = (cnxID: string) => {
@@ -93,7 +100,7 @@ export function AppContextProvider(props: any) {
     let newTotal = newData.total_followers - toDelete.status.value;
     newData = { ...newData, total_followers: newTotal };
 
-    setPositions(prevPositions => prevPositions.filter(p => p !== cnxID));
+    setPositions((prevPositions) => prevPositions.filter((p) => p !== cnxID));
 
     delete (newData.media as MediaType)[cnxID];
     setData(newData);
@@ -104,16 +111,18 @@ export function AppContextProvider(props: any) {
     setPositions([]); //marks visitor cleared mock
   };
 
-  const setPositionsHandler = (positions: Array<string>) => { setPositions(positions) }
+  const setPositionsHandler = (positions: Array<string>) => {
+    setPositions(positions);
+  };
 
   //Persist positions to localStorage on change
   useEffect(() => {
     localStorage.setItem("mainCardPositions", JSON.stringify(positions));
-  }, [positions])
+  }, [positions]);
 
   useEffect(() => {
     localStorage.setItem("payload", JSON.stringify(data));
-  }, [data])
+  }, [data]);
 
   const context = {
     socialNetworks: socialNetworks,
@@ -128,15 +137,13 @@ export function AppContextProvider(props: any) {
       remove: removeProfileHandler,
       removeAll: removeAllProfilesHandler,
       positions: positions,
-      setPositions: setPositionsHandler
-    }
-  }
+      setPositions: setPositionsHandler,
+    },
+  };
 
   return (
-    <AppContext.Provider value={context}>
-      {props.children}
-    </AppContext.Provider>
-  )
+    <AppContext.Provider value={context}>{props.children}</AppContext.Provider>
+  );
 }
 
 export default AppContext;

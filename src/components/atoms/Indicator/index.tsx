@@ -14,9 +14,12 @@ export default function Indicator(props: {
   return (
     <Box boxClass="center-row">
       {value && arrow ? <Icon iconName={getArrowName(value)} /> : ""}
-      <Typography variant="subtitle" style={{ color: `var(${getColor(value)})` }}>
+      <Typography
+        variant="subtitle"
+        style={{ color: `var(${getColor(value)})` }}
+      >
         {`${Math.abs(value)}${percent ? "%" : ""} ${
-          typeof period === 'number' ? calcPeriod(period as number) : ""
+          typeof period === "number" ? calcPeriod(period as number) : ""
         }`}
       </Typography>
     </Box>

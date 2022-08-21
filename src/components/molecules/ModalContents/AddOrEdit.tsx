@@ -28,8 +28,7 @@ export default function AddOrEdit(props: AddOrEditProps) {
   onEnterCallback && onEnterCallback();
 
   function selectChangeHandler(e: React.ChangeEvent<HTMLSelectElement>) {
-    onChangeCallback &&
-      onChangeCallback(e.target.value as SocialNetworkNames);
+    onChangeCallback && onChangeCallback(e.target.value as SocialNetworkNames);
   }
 
   function usernameChangeHandler(e: React.ChangeEvent<HTMLInputElement>) {
@@ -53,13 +52,20 @@ export default function AddOrEdit(props: AddOrEditProps) {
             onChange={selectChangeHandler}
           >
             {Object.keys(socialNetworks).map((sn) => (
-              <option value={sn} key={sn}>{sn}</option>
+              <option value={sn} key={sn}>
+                {sn}
+              </option>
             ))}
           </select>
         </label>
         <label>
           <Typography variant="subtitle">Username</Typography>
-          <input id="username" type="text" value={username} onChange={usernameChangeHandler} />
+          <input
+            id="username"
+            type="text"
+            value={username}
+            onChange={usernameChangeHandler}
+          />
         </label>
         <div className="form-options">
           <input
@@ -75,9 +81,10 @@ export default function AddOrEdit(props: AddOrEditProps) {
             className="cancel"
             onClick={(e) => {
               e.preventDefault();
-              
-              onExitCallback && onExitCallback()
-            }}>
+
+              onExitCallback && onExitCallback();
+            }}
+          >
             Cancel
           </button>
         </div>

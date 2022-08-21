@@ -28,7 +28,7 @@ export default function Scoreboard(props: ScoreboardProps) {
   const { media, period } = props;
 
   const finishMove = (e: React.DragEvent<HTMLElement>) => {
-    const positions = ctx.profiles.positions
+    const positions = ctx.profiles.positions;
     const beingDropped = e.dataTransfer.getData("dragged");
     const droppedOver = getMediumFromCard(e.currentTarget);
     const newIndex = positions.findIndex((medium) => medium === droppedOver);

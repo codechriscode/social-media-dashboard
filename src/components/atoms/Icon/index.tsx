@@ -36,11 +36,11 @@ const iconLib: {
   },
   famous: {
     src: famous,
-    alt: "You are famous"
+    alt: "You are famous",
   },
   grab: {
     src: grab,
-    alt: "Try grabbing"
+    alt: "Try grabbing",
   },
   Facebook: {
     src: facebook,

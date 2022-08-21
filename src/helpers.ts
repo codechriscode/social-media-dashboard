@@ -52,10 +52,13 @@ export function commaSeparate(num: number) {
 }
 
 export function plusOrMinus() {
-  return Math.trunc(Math.random() * 10) % 2 ? -1 : 1
+  return Math.trunc(Math.random() * 10) % 2 ? -1 : 1;
 }
 
-export const generateMockProfile = (networkName: SocialNetworkNames, username: string) => {
+export const generateMockProfile = (
+  networkName: SocialNetworkNames,
+  username: string
+) => {
   const networkParams = socialNetworks[networkName];
   const cnxID = `${Math.trunc(Math.random() * 10000000000)}`;
   const newEntry = {

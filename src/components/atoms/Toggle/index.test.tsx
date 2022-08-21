@@ -7,7 +7,7 @@ test("onChange gets fired", () => {
   render(<Toggle onchange={toggleFn} />);
   const toggle = screen.getByRole("checkbox");
   expect(toggle).toBeInTheDocument();
-  
+
   fireEvent.click(toggle);
   expect(toggle).toBeChecked();
   expect(toggleFn).toHaveBeenCalled();

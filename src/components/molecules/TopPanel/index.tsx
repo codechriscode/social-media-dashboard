@@ -28,7 +28,7 @@ export default function TopPanel(props: { totalFollowers: number }) {
   return (
     <>
       <Box id="topPanel" boxClass="corner-row">
-        <div style={{width: "100%"}}>
+        <div style={{ width: "100%" }}>
           <Typography variant="title">Social Media Dashboard</Typography>
           <Typography variant="subtitle">{`Total Followers: ${commaSeparate(
             totalFollowers

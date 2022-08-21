@@ -17,10 +17,18 @@ export default function Dashboard() {
     <>
       <TopPanel totalFollowers={ctx.profiles.state.total_followers || 0} />
       <main>
-        {ctx.profiles.state.media && Object.keys(ctx.profiles.state.media).length ? (
+        {ctx.profiles.state.media &&
+        Object.keys(ctx.profiles.state.media).length ? (
           <>
-            <Scoreboard media={ctx.profiles.state.media} period={ctx.profiles.state.period} />
-            <Overview media={ctx.profiles.state.media} period={ctx.profiles.state.period} order={ctx.profiles.positions} />
+            <Scoreboard
+              media={ctx.profiles.state.media}
+              period={ctx.profiles.state.period}
+            />
+            <Overview
+              media={ctx.profiles.state.media}
+              period={ctx.profiles.state.period}
+              order={ctx.profiles.positions}
+            />
           </>
         ) : (
           <GetStarted />
