@@ -2,12 +2,15 @@
 
 [Check it out LIVE!](https://codechriscode.github.io/social-media-dashboard)
 
+This is a MUI-Inspired, custom implemented React app to manage your fame :star:
+
 ## Nice things to try
 - Dragging/reordering profiles
 - Toggling dark mode
 - Changing screen size
 - Refreshing the window
 - Adding a new network
+- Deleting all entries
 
 ## Initial task statement
 
