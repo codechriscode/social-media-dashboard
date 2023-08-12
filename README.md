@@ -27,7 +27,8 @@ It should:
 - Test enough where it matters
 
 The commit history shows the progress and how each feature was built.
+I added functionality such as the "add new profile" feature. 
 
 ## About
 
-The project is currently being configured for GitHub Pages. It came to me as a challenge in CodeSubmit.
+It came to me as a challenge in CodeSubmit with full proprietary rights over the code.
